@@ -1,0 +1,450 @@
+/* ---- Animated Gradient Background ---- */
+body, html {
+  background: linear-gradient(-45deg, #141e30, #243b55, #80ffea, #8aff80, #fcfcfc);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease-in-out infinite;
+}
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+/* ---- Glassmorphism container ---- */
+.container {
+  min-width: 420px;
+  max-width: 600px;
+  min-height: 360px;
+  margin: 7vh auto 2vh auto;
+  padding: 42px 40px 36px 40px;
+  background: rgba(28,40,66,0.76);
+  box-shadow: 0 10px 42px #71ffeb45, 0 2px 24px #2dffb930;
+  border-radius: 2.5em;
+  backdrop-filter: blur(32px) saturate(180%);
+  border: 2.2px solid #8aff80a6;
+  position: relative;
+  z-index: 2;
+  transition: box-shadow .33s, background .31s, border .22s;
+  animation: popIn 1.3s cubic-bezier(.57,1.09,.53,1.07);
+}
+@keyframes popIn {
+  0% {transform: scale(.86) translateY(30px); opacity: 0;}
+  100% {transform: scale(1) translateY(0); opacity:1;}
+}
+
+/* ---- Neon/glow button ---- */
+
+.btn, .option-group .btn {
+  background: linear-gradient(89deg, #bcffe0 0, #8aff80 30%, #80ffea 99%);
+  color: #222;
+  font-weight: 700;
+  font-size: 1.25em;
+  padding: 16px 32px;
+  min-width: 160px;
+  border: none;
+  border-radius: 2em;
+  box-shadow: 0 0 35px #7dfcf177, 0 0 8px #8aff80d9;
+  position: relative;
+  overflow: hidden;
+  transition: background .18s, box-shadow .29s, transform .17s;
+  filter: drop-shadow(0 0 24px #8aff80bc);
+  letter-spacing:1px;
+  margin: 27px 18px 18px 18px;
+}
+.btn:hover { 
+  background: linear-gradient(89deg, #8aff80 0, #80ffea 88%);
+  box-shadow: 0 0 42px #b7ffe0, 0 0 38px #47fbca63;
+  transform: scale(1.08) rotate(-1deg);
+  color: #178668;
+}
+
+.btn:active { transform: scale(.98); }
+
+/* Ripple effect on button click */
+.btn::after {
+  content: "";
+  position: absolute; left: 50%; top: 50%; pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  background: radial-gradient(circle, #25f3e4 15%, transparent 50%);
+  width: 150%; height: 310%;
+  opacity: .18;
+  animation: btnRipple .55s cubic-bezier(.23,1,.32,1) 1;
+}
+@keyframes btnRipple {
+  from {transform:translate(-50%,-50%) scale(.09);}
+  to {transform:translate(-50%,-50%) scale(1.09);opacity:0;}
+}
+
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(128,255,234,0.18);
+  transform: scale(0);
+  animation: rippleEffect 0.54s linear;
+  pointer-events:none;
+  z-index:2;
+}
+@keyframes rippleEffect {
+  to { transform: scale(9); opacity: 0; }
+}
+
+}
+.btn:hover, .option-group .btn:hover {
+  background: linear-gradient(90deg, #8aff80 0%, #80ffea 100%);
+  filter: drop-shadow(0px 0px 24px #20f7e8);
+  transform: scale(1.07) rotate(-1deg);
+}
+
+.btn:active {
+  background: linear-gradient(90deg, #8aff80 0%, #80ffea 100%);
+  filter: drop-shadow(0px 0px 20px #2ffdfd);
+  transform: scale(0.96);
+}
+
+/* ---- Floating Form Inputs ---- */
+.form-container input {
+  background: rgba(255,255,255,0.09);
+  color: #aaf1d4;
+  border: 1.6px solid #48f4e2;
+  outline: none;
+  transition: box-shadow 0.16s, border 0.22s;
+  box-shadow: 0 3px 11px rgba(128,255,234,0.08);
+}
+.form-container input:focus {
+  border: 2.9px solid #8aff80;
+  box-shadow: 0 0 19px 0 #8aff80;
+  background: rgba(80,255,234,0.12);
+  color: #fff;
+}
+
+.form-container input:hover {
+  background: rgba(80,255,234,0.08);
+  filter: drop-shadow(0 0 12px #80ffea22);
+}
+
+input:focus {
+  outline: 2.5px solid #80ffea;
+  box-shadow: 0 0 23px #8aff80aa;
+}
+
+/* ---- Fancy Back Arrow ---- */
+.back-arrow {
+  font-size: 2em;
+  color: #06ffd9;
+  text-shadow: 0 0 12px #2fffd8,0 0 24px #2fe1ff44;
+  animation: arrowFloat 2.3s ease-in-out infinite;
+}
+@keyframes arrowFloat {
+  0%,100% {transform: translateY(0);}
+  50% {transform: translateY(-8px);}
+}
+
+/* ---- Animated Dashboard Widgets ---- */
+.dashboard-widgets .widget {
+  background: rgba(55,75,140,0.23);
+  box-shadow: 0 2px 24px #84fce8a1;
+  transition: transform 0.2s cubic-bezier(.81,1.04,.67,.33);
+  border: 2.2px solid #4efcbd45;
+}
+.dashboard-widgets .widget:hover {
+  transform: scale(1.046) rotate(-1.5deg);
+  background: rgba(55,75,140,0.31);
+}
+/* ---- Neon/shadowed headings ---- */
+h1, h2 {
+  color: #80ffea;
+  text-shadow: 0 0 6px #31ffe3b7,0 0 35px #077acf33;
+}
+h2 {
+  color: #7aff85;
+  text-shadow: 0 0 12px #95ffb36c, 0 0 36px #67d6ff4a;
+}
+
+/* ---- Animate Option-Group Items ---- */
+.option-group {
+  display: flex;
+  justify-content: center;      /* Center horizontally */
+  align-items: flex-end;        /* Move buttons towards the bottom */
+  gap: 3vw;
+  width: 100%;
+  max-width: 500px;
+  margin: 6vh auto 0 auto;
+  position: relative;
+  top: 70px;                    /* Move the whole group lower if desired */
+}
+
+
+.option-group .btn {
+  animation: popIn 1.5s cubic-bezier(0.21,1.13,0.65,0.97);
+}
+@keyframes popIn {
+  0% {transform: scale(.7) translateY(30px);opacity:0;}
+  100% {transform: scale(1) translateY(0px);opacity:1;}
+}
+
+/* ---- Custom Scrollbar ---- */
+::-webkit-scrollbar {
+  height:9px; width:9px; background: #111;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg,#7aeaea 10%,#7bffad 90%);
+  border-radius:4px;
+}
+
+/* ---- Animated Captcha Canvas Border ---- */
+.captcha-container canvas {
+  border: 2.2px solid #81ffe8;
+  box-shadow: 0 0 11px #10ffd877;
+  animation: borderPulse 1.8s infinite alternate;
+}
+@keyframes borderPulse {
+  0% {box-shadow:0 0 13px #10ffd866;}
+  100% {box-shadow:0 0 24px #10ffd8d9;}
+}
+/* ---- Contributors Grid ---- */
+#contributors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: center;
+  margin-top: 24px;
+}
+.contributor {
+  background: rgba(38,66,90,0.61);
+  border-radius: 15px;
+  box-shadow: 0 2px 16px #a9ffe12a;
+  padding: 17px;
+  text-align: center;
+  transition: transform 0.2s, background 0.2s;
+}
+.contributor:hover {
+  background: rgba(95,186,255,0.16);
+  transform: scale(1.08) rotate(-1.5deg);
+}
+/* ---- Floating Circles/Particles ---- */
+body::before, body::after {
+  content: '';
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  width:350px;height:350px;
+  border-radius: 100%;
+  background: radial-gradient(circle,#8aff80b7 0,#80ffea11 90%);
+  filter: blur(55px);
+  animation: floatParticle 12s infinite alternate ease-in;
+}
+body::after {
+  width: 270px; height: 310px;
+  left: 70vw; top: 53vh;
+  background: radial-gradient(circle,#80ffea9c 0,#1a6e6e11 95%);
+  animation-delay: 5s;
+}
+@keyframes floatParticle {
+  0% {transform: translateY(0) translateX(0);}
+  100% {transform: translateY(-44px) translateX(-35px);}
+}
+/* ---- Animated form error ---- */
+.error {
+  color: #ff77ac;
+  font-weight: 600;
+  animation: errorShake 0.66s cubic-bezier(.37,2.34,.68,.62);
+}
+@keyframes errorShake {
+  0%, 100% {transform: translateX(0);}
+  15% {transform: translateX(-10px);}
+  30% {transform: translateX(10px);}
+  45% {transform: translateX(-8px);}
+  60% {transform: translateX(7px);}
+  75% {transform: translateX(-6px);}
+  90% {transform: translateX(6px);}
+}
+
+/* ---- Extra Mobile Tweaks ---- */
+@media (max-width: 600px) {
+  .container {
+    max-width:96vw;
+    padding: 20px 4vw 18px 4vw;
+  }
+  .dashboard-widgets, #contributors {
+    flex-direction: column;
+  }
+}
+
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #141e30 0%, #243b55 100%);
+  color: #fff;
+}
+.container {
+  width: 98%;
+  max-width: 440px;
+  margin: 45px auto;
+  background: rgba(34, 46, 68, 0.94);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(12,18,38,0.67);
+  padding: 40px 25px 25px 25px;
+}
+h1, h2 {
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  font-size: 2em;
+  background: linear-gradient(91deg, #8aff80 30%, #80ffea 80%, #d7fff9 99%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px #8aff80cc);
+  animation: textGlow 1.7s infinite alternate cubic-bezier(.73,.02,.61,1.01);
+}
+@keyframes textGlow {
+  0% {filter: drop-shadow(0 0 18px #8aff80cc);}
+  100% {filter: drop-shadow(0 0 30px #80ffeaee);}
+}
+
+.option-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35px;
+}
+.btn {
+  background: linear-gradient(90deg, #80ffea, #8aff80);
+  color: #282828;
+  font-weight: 600;
+  padding: 14px 32px;
+  border: none;
+  margin: 4px;
+  border-radius: 70px;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 3px 12px rgba(128,255,234,0.18);
+  transition: transform 0.14s, background 0.14s;
+  text-decoration: none;
+  text-align: center;
+}
+.btn:hover {
+  background: linear-gradient(90deg, #8aff80, #80ffea);
+  transform: translateY(-4px) scale(1.03);
+}
+.form-container input[type], .form-container input, .form-container button, .form-container select {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin: 18px 0;
+  border-radius: 12px;
+  border: none;
+  background: rgba(205,255,245,0.11);
+  color: #fff;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+input[type="date"], input[type="email"], input[type="password"], input[type="text"] {
+  color: #fff;
+}
+input::placeholder { color: #b0eee4; }
+.captcha-container {
+  display: flex; align-items: center; gap: 5px;
+  margin: 6px 0;
+}
+.captcha-container canvas {
+  border-radius: 7px;
+  background: #222e44;
+}
+.error {
+  color: #f7766d;
+  text-align: center;
+  font-weight: 600;
+}
+.dashboard { text-align: center;}
+.dashboard-widgets { 
+  display: flex; flex-direction: column; gap: 28px; align-items: center;
+}
+.widget {
+  background: rgba(220,240,255,0.12);
+  border-radius: 12px; padding: 16px 24px;
+  margin: 7px 0;
+  display: inline-block;
+}
+.clock { box-shadow: 0 2px 10px #b6fcb85e; }
+.back-arrow {
+  font-size: 1.5em;
+  position: absolute;
+  left: 22px;
+  top: 28px;
+  cursor: pointer;
+  color: #8aff80;
+  z-index: 2;
+  user-select: none;
+  transition: color 0.18s;
+}
+.back-arrow:hover { color: #80ffea; }
+@media (max-width: 600px) {
+  .container {max-width:98vw;}
+  .option-group {flex-direction:column;}
+  .btn {width:100%;}
+}
+
+.confetti {
+  position: fixed;
+  width: 9px; height: 9px;
+  border-radius: 2.4px;
+  will-change: transform,opacity;
+  pointer-events:none;
+  animation: confettiAnim .8s cubic-bezier(.11,.82,.67,.88);
+  z-index:9999;
+}
+@keyframes confettiAnim {
+  from { opacity:1; transform:translate(0,0) scale(1);}
+  to   { opacity:0; transform:translate(var(--dx),var(--dy)) scale(0.62);}
+}
+
+.form-container input:focus {
+  animation: shimmerFocus .7s linear;
+}
+@keyframes shimmerFocus {
+  0% {
+    box-shadow: 0 0 1px #80ffea, 0 0 8px #8aff80;
+  }
+  100% {
+    box-shadow: 0 0 22px #80ffea88, 0 0 4px #8aff80aa;
+  }
+}
+
+.particle {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(9px) brightness(1.5);
+  mix-blend-mode: lighten;
+  opacity: 0.24;
+  z-index: 1;
+  animation: floatParticle 14s linear infinite;
+}
+@keyframes floatParticle {
+  0% { transform: translateY(0) scale(.92); }
+  100% { transform: translateY(-53vh) scale(1.09);}
+}
+
+/* Only affect the rectangle on index and register pages */
+.large-rect {
+  min-width: 540px !important;
+  max-width: 900px !important;
+  min-height: 420px !important;
+  padding: 60px 80px 50px 80px !important;
+  border-radius: 2.8em !important;
+  margin: 7vh auto !important;
+}
+@media (max-width: 900px) {
+  .large-rect {
+    min-width: 98vw !important;
+    max-width: 99vw !important;
+    min-height: 85vh !important;
+    padding: 22px 2vw !important;
+    border-radius: 20px !important;
+  }
+}
+
+
+
