@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="container dashboard">
+    <div class="back-arrow" onclick="window.location.href='admin.html'">&#8592; Logout</div>
+    <h1>Welcome Developer Ishan Vaidya</h1>
+    <div class="dashboard-widgets">
+      <div class="widget clock">
+        <canvas id="clockCanvas" width="120" height="120"></canvas>
+        <div id="region"></div>
+      </div>
+      <div class="widget info">
+        <p><strong>System Name:</strong> <span id="sysname"></span></p>
+        <p><strong>IP Address:</strong> <span id="ip"></span></p>
+        <p><strong>Region:</strong> <span id="location"></span></p>
+      </div>
+      <div class="widget actions">
+        <button onclick="downloadLog()">View Activity Log (CSV)</button>
+        <button onclick="downloadUsersCSV()">Download User Credentials (CSV)</button>
+        <label>
+          <input type="checkbox" id="maintainanceToggle" onchange="toggleMaintainance(this)">
+          Enable Maintenance Mode
+        </label>
+      </div>
+    </div>
+  </div>
+  <script src="assets/script.js"></script>
+  <script>
+    drawClock('clockCanvas');
+    loadAdminInfo();
+    document.getElementById('maintainanceToggle').checked = isMaintenanceMode();
+  </script>
+</body>
+</html>
